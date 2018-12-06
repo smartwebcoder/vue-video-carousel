@@ -692,3 +692,18 @@ ul.nav li a {
   background: black;
   text-align: center;
 }
+pre
+{
+  
+  text-align: left;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+code{
+  height: 100%;
+}
+.slider-nav code{
+  zoom: 0.5;
+  overflow: hidden;
+}

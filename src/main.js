@@ -17,6 +17,10 @@ const store = new Vuex.Store({
     video_lists: [
       'oceans', 'book', 'negative'
       // 'https://dr1ermzj55u4w.cloudfront.net/0eb4cd5a-4a4f-473d-a066-fc7bd2ce5cb2/hls/7U2Qb0AoIJ8.m3u8'
+    ],
+    codes: [
+      '/code/code1.html',
+      '/code/code1.html'
     ]
   }
 
