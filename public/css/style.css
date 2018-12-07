@@ -697,3 +697,6 @@ code{
   zoom: 0.5;
   overflow: hidden;
 }
+div{
+  outline: none;
+}

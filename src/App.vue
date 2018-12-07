@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <Carousel cycle="true"/>
-     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <Carousel v-bind:cycle="true" v-bind:smooth="true"/>
   </div>
 </template>
 

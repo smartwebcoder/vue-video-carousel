@@ -1,6 +1,10 @@
 <template>
     <div class="content">
         <div class="slider slider-for">
+            
+            <div v-for="image in images" :key="image.id">
+                <img :src="image">
+            </div>
             <div v-for="(video, index) in videos" :key="index">
                 <video
                     :id="'player-'+index"
@@ -9,30 +13,41 @@
                     :class="'cld-video-player cld-video-player-skin-dark data-cld-public-id='+video"
                 />
             </div>
-            <div v-for="image in images" :key="image.id">
-                <img :src="image">
-            </div>
             <!-- <div v-for="(code, idx) in codes" :key="`code-${idx}`" >
                 <pre><code :id="'code-'+idx" class="html">{{ReadFile(code, idx)}}</code></pre>
             </div> -->
             <div>
+                <pre><code class="html"><p>Hello, world!</p></code></pre>
+            </div>
+            <div>
                 <pre><code class="javascript">var test; console.log(1+3);</code></pre>
+            </div>
+            <div>
+                <pre><code class="css">body #carbonads .carbon-img { margin-bottom: 10px; }</code></pre>
             </div>
         </div>
         <div class="slider slider-nav">
+            
+            <div v-for="image in images" :key="image.id">
+                <img :src="image">
+            </div>
             <div v-for="(video, index) in videos" :key="index">
                 <video
                     :id="'prev-'+index"
                     controls
                     muted
+                    preload="false"
                     :class="'cld-video-player cld-video-player-skin-dark data-cld-public-id='+video"
                 />
             </div>
-            <div v-for="image in images" :key="image.id">
-                <img :src="image">
+            <div>
+                <pre><code class="html"><p>Hello, world!</p></code></pre>
             </div>
             <div>
                 <pre><code class="javascript">var test; console.log(1+3);</code></pre>
+            </div>
+            <div>
+                <pre><code class="css">#carbonads .carbon-img { margin-bottom: 10px; }</code></pre>
             </div>
         </div>
     </div>
@@ -43,7 +58,8 @@
 export default {
     name: "HelloWorld",
     props: {
-        msg: String
+        cycle: Boolean, // 
+        smooth : Boolean // Smooth Continuous slide or not
     },
     data() {
         return {
@@ -58,27 +74,43 @@ export default {
             slidesToScroll: 1,
             arrows: false,
             asNavFor: ".slider-nav",
-            dots: true
+            dots: true,
+            fade: !this.smooth,
+            infinite: this.cycle
         });
         $(".slider-nav").slick({
             slidesToShow: 3,
             slidesToScroll: 1,
             asNavFor: ".slider-for",
-            centerMode: true,
-            focusOnSelect: true
+            centerMode: this.cycle,
+            focusOnSelect: true,
+            infinite: this.cycle
         });
+        // On before slide change
+        $('.slider-for').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            var slides = slick.slides;
+            // console.log(slick.$slides);
+            var $before = $('.slider-for .slick-slide:nth-child('+(currentSlide)+') video');
+            // console.log($before);
+        });
+        // On swipe event
+        // $('.slider-for').on('swipe', function(event, slick, direction){
+        //     console.log(direction, slick);
+        //     // left
+        // });
 
         // Adaptive Streaming
         var cld = cloudinary.Cloudinary.new({ cloud_name: "miki-cloudinary" });
+        // var cld = cloudinary.Cloudinary.new({ cloud_name: "cloud" });
 
         var player = [];
         var prev = [];
         for (var i = 0; i < this.videos.length; i++) {
             player[i] = cld.videoPlayer("player-" + i);
-            player[i].source(this.videos[i], { sourceTypes: ["hls"] }).pause();
+            player[i].source(this.videos[i], { sourceTypes: ["hls"] }).stop();
 
             prev[i] = cld.videoPlayer("prev-" + i);
-            prev[i].source(this.videos[i], { sourceTypes: ["hls"] }).pause();
+            prev[i].source(this.videos[i], { sourceTypes: ["hls"] }).stop();
         }
 
         // Display Html/Css/Javascript code
