@@ -700,3 +700,20 @@ code{
 div{
   outline: none;
 }
+pre
+{
+  border: none !important;
+}
+.modal-dialog
+{
+  width: 60vw;
+  height: 40vw;
+}
+.modal-content, .modal-body
+{
+  height: 100%;
+}
+.modal-body
+{
+  padding-bottom: 85px;
+}

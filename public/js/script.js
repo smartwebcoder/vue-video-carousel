@@ -17,19 +17,11 @@ function resizeSlide()
 $(document).ready(function(){
     $('code').each(function() {
         var text = $(this).html();
-        console.log(text);
         text = text.replace(' data-v-e3565ce0=""', '').trim();
         $(this).text(text);
-        // console.log($(this).html());
-        // $(this).text($(this).html().trim());
-        // var that = $(this);
-        // // cache the content of 'code'
-        // var html = that.text().trim();
-        // console.log(html);
-        // that.empty();
-        // // escape the content
-        // that.text(html);
     });
-})
-
-//   hljs.initHighlightingOnLoad();
+    $('img').click(function(){
+        $('#myModal #modal_image').attr('src', $(this).attr('src'));
+        $('#myModal').modal({show:true});
+    })
+});
