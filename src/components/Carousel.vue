@@ -61,8 +61,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </template>
 
@@ -129,33 +127,6 @@ export default {
             prev[i] = cld.videoPlayer("prev-" + i);
             prev[i].source(this.videos[i], { sourceTypes: ["hls"] }).stop();
         }
-
-        // Display Html/Css/Javascript code
-
-        // function ReadFile(url, index) {
-        //     $.get(url, function(html_string) {
-        //         var element = $('.slider-nav .slick-list .slick-track').find('code')[index];
-        //         $('#code-'+index).text(html_string);
-        //         $('#codeprev-'+index).text(html_string);
-        //     },'html');
-        // }
-        // for(var i = 0; i < this.codes.length; i++)
-        // {
-        //     ReadFile(this.codes[i], i);
-        //     ReadFile(this.codes[i], i);
-        // }
-    },
-    methods: {
-        // ReadFile: function(url, id) {
-        //     $.get(url, function(html_string) {
-        //         $('#code-'+id).text(html_string);
-        //         $('#codeprev-'+id).text(html_string);
-        //         $('pre code').each(function(i, block) {
-        //             console.log('aa');
-        //             hljs.highlightBlock(block);
-        //         });
-        //     },'html');
-        // }
     }
 };
 </script>

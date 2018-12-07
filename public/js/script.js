@@ -24,4 +24,7 @@ $(document).ready(function(){
         $('#myModal #modal_image').attr('src', $(this).attr('src'));
         $('#myModal').modal({show:true});
     })
+    $('code').click(function() {
+        window.open("https://www.w3schools.com");//Customize.
+    });
 });
