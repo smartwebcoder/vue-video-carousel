@@ -1,5 +1,4 @@
-# carousel4
-
+# Vue Carousel Component with Video, Image, Html/CSS/Javascript Code.
 ## Project setup
 ```
 npm install
