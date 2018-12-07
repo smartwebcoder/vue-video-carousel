@@ -10,18 +10,13 @@
     .slider-for .slick-slide
     {
         width: 80vw;
-        height: 50vw;
         background: black;
-    }
-    .slider-for .cld-video-player {
-        height: 50vw;
     }
 
 }
 @media (min-width: 528px) {
     .slider-nav .slick-slide {
         margin: 10px;
-        height: 10vw;
     }
 }
 
@@ -41,11 +36,6 @@
     }
     .slider-nav .slick-slide {
         margin: 10px;
-        height: 8vw;
-    }
-    .slider-nav .video-js
-    {
-        height: 8vw;
     }
 
 }
@@ -53,24 +43,15 @@
 @media (min-width: 992px) {
     .slider-for
     {
-        width: 50% !important;
+        width: 800px !important;
     }
     .slider-nav
     {
-        width: 40% !important;
+        width: 600px !important;
     }
     .slider-for .slick-slide
     {
         width: 80vw;
-        height: 30vw;
         background: black;
     }
-    .slider-for .cld-video-player {
-        height: 30vw;
-    }
-}
-@media (min-width: 1200px) {
-}
-@media (min-width: 1600px)
-{
 }
