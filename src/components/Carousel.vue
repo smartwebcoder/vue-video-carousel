@@ -12,8 +12,11 @@
             <div v-for="image in images" :key="image.id">
                 <img :src="image">
             </div>
-            <div v-for="(code, idx) in codes" :key="`code-${idx}`" >
+            <!-- <div v-for="(code, idx) in codes" :key="`code-${idx}`" >
                 <pre><code :id="'code-'+idx" class="html">{{ReadFile(code, idx)}}</code></pre>
+            </div> -->
+            <div>
+                <pre><code class="javascript">var test; console.log(1+3);</code></pre>
             </div>
         </div>
         <div class="slider slider-nav">
@@ -28,8 +31,8 @@
             <div v-for="image in images" :key="image.id">
                 <img :src="image">
             </div>
-            <div v-for="(code, idx) in codes" :key="`codeprev-${idx}`" >
-                <pre><code :id="'codeprev-'+idx" class="html">{{ReadFile(code, idx)}}</code></pre>
+            <div>
+                <pre><code class="javascript">var test; console.log(1+3);</code></pre>
             </div>
         </div>
     </div>
@@ -54,13 +57,8 @@ export default {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
-            // fade: true,
             asNavFor: ".slider-nav",
             dots: true
-            // mobileFirst: true,
-            // respondTo: 'window',
-            // centerMode: true,
-            // adaptiveHeight: true
         });
         $(".slider-nav").slick({
             slidesToShow: 3,
@@ -85,26 +83,30 @@ export default {
 
         // Display Html/Css/Javascript code
 
-        function ReadFile(url, index) {
-            $.get(url, function(html_string) {
-                var element = $('.slider-nav .slick-list .slick-track').find('code')[index];
-                $('#code-'+index).text(html_string);
-                $('#codeprev-'+index).text(html_string);
-            },'html');
-        }
-        for(var i = 0; i < this.codes.length; i++)
-        {
-            ReadFile(this.codes[i], i);
-            ReadFile(this.codes[i], i);
-        }        
+        // function ReadFile(url, index) {
+        //     $.get(url, function(html_string) {
+        //         var element = $('.slider-nav .slick-list .slick-track').find('code')[index];
+        //         $('#code-'+index).text(html_string);
+        //         $('#codeprev-'+index).text(html_string);
+        //     },'html');
+        // }
+        // for(var i = 0; i < this.codes.length; i++)
+        // {
+        //     ReadFile(this.codes[i], i);
+        //     ReadFile(this.codes[i], i);
+        // }        
     },
     methods: {
-        ReadFile: function(url, id) {
-            $.get(url, function(html_string) { 
-                $('#code-'+id).text(html_string);
-                $('#codeprev-'+id).text(html_string);
-            },'html');
-        }
+        // ReadFile: function(url, id) {
+        //     $.get(url, function(html_string) { 
+        //         $('#code-'+id).text(html_string);
+        //         $('#codeprev-'+id).text(html_string);
+        //         $('pre code').each(function(i, block) {
+        //             console.log('aa');
+        //             hljs.highlightBlock(block);
+        //         });
+        //     },'html');
+        // }
     }
 };
 </script>
